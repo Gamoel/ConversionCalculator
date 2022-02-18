@@ -17,7 +17,7 @@ public class ConvertKgToG implements ConversionServiceInterface {
     public ResponseDto doConvert(RequestDto requestDto) {
 
         float fromValue = requestDto.getFromValue();
-        float result = fromValue/1000;
+        float result = getResult(fromValue);
 
         return new ResponseDto(
               true,
@@ -26,6 +26,10 @@ public class ConvertKgToG implements ConversionServiceInterface {
                 requestDto.getFromType(),
                 requestDto.getToType()
         );
+    }
+
+    public float getResult(float fromValue) {
+        return fromValue *1000;
     }
 }
 
