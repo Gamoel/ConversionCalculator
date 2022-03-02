@@ -1,5 +1,7 @@
 package com.example.conversioncalculator.dto;
 
+import java.util.Objects;
+
 public class ResponseDto {
     private boolean valid;
     private float result;
@@ -55,4 +57,35 @@ public class ResponseDto {
         this.toType = toType;
     }
 
+    @Override
+    public String toString() {
+        return "ResponseDto{" +
+                "valid=" + valid +
+                ", result=" + result +
+                ", fromValue=" + fromValue +
+                ", fromType='" + fromType + '\'' +
+                ", toType='" + toType + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ResponseDto that = (ResponseDto) o;
+        return valid == that.valid &&
+                Math.abs(that.result - result) < 0.0001 &&
+                Math.abs(that.fromValue - fromValue) < 0.0001 &&
+                Objects.equals(fromType, that.fromType) &&
+                Objects.equals(toType, that.toType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(valid, result, fromValue, fromType, toType);
+    }
 }
