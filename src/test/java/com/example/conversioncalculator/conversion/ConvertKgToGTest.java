@@ -11,7 +11,7 @@ public class ConvertKgToGTest {
 
     @Test
     public void convertKgToG() {
-        assertThat(convertKgToG.getResult((float) 2.34)).isEqualTo(2340);
+        assertThat(ConvertKgToG.getResult((float) 2.34)).isEqualTo(2340);
     }
 
     @Test
@@ -26,5 +26,10 @@ public class ConvertKgToGTest {
         ResponseDto responseDto = new ResponseDto(true, 0, (float) 0, "kg", "g");
         RequestDto requestDto = new RequestDto(0f, "kg", "g");
         assertThat(convertKgToG.doConvert(requestDto)).isEqualTo(responseDto);
+    }
+
+    @Test
+    public void checkConversionCode() {
+        assertThat(convertKgToG.getConversionCode()).isEqualTo("kg to g");
     }
 }

@@ -5,6 +5,7 @@ import com.example.conversioncalculator.dto.ResponseDto;
 import com.example.conversioncalculator.strategy.ConversionServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class CustomConversionFromAutowireService {
 
     public ResponseDto doConvert(RequestDto requestDto) {
 
-        String conversionCode = requestDto.getFromType().toLowerCase(Locale.ROOT).concat(" to ").concat(requestDto.getToType()).toLowerCase(Locale.ROOT);
+        String conversionCode = (requestDto.getFromType().concat(" to ").concat(requestDto.getToType())).toLowerCase(Locale.ROOT);
 
         ConversionServiceInterface service = serviceByConversionString.get(conversionCode);
 //        if(service== null){

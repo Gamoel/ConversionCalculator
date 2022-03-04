@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ConvertKgToG implements ConversionServiceInterface {
 
+    private final String CONVERSIONCODE = "kg to g";
+
     @Override
     public String getConversionCode() {
-        return "kg to g";
+        return CONVERSIONCODE;
     }
 
     @Override
@@ -20,7 +22,7 @@ public class ConvertKgToG implements ConversionServiceInterface {
         float result = getResult(fromValue);
 
         return new ResponseDto(
-              true,
+                true,
                 result,
                 requestDto.getFromValue(),
                 requestDto.getFromType(),
@@ -28,8 +30,8 @@ public class ConvertKgToG implements ConversionServiceInterface {
         );
     }
 
-    public float getResult(float fromValue) {
-        return fromValue *1000;
+    public static float getResult(float fromValue) {
+        return fromValue * 1000;
     }
 }
 
