@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ConvertCtoF implements ConversionServiceInterface {
-    private final String CONVERSIONCODE = "c to f";
+    private final static String CONVERSIONCODE = "c to f";
 
     @Override
     public String getConversionCode() {
