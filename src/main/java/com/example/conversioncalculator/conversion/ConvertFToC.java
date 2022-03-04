@@ -6,9 +6,9 @@ import com.example.conversioncalculator.strategy.ConversionServiceInterface;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ConvertKgToG implements ConversionServiceInterface {
+public class ConvertFToC implements ConversionServiceInterface {
 
-    private final static String CONVERSIONCODE = "kg to g";
+    private final static String CONVERSIONCODE = "f to c";
 
     @Override
     public String getConversionCode() {
@@ -31,7 +31,7 @@ public class ConvertKgToG implements ConversionServiceInterface {
     }
 
     public static float getResult(float fromValue) {
-        return fromValue * 1000;
+        return (fromValue - 32f) * 5 / 9;
     }
 }
 
